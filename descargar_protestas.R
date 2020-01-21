@@ -1,7 +1,5 @@
 rm(list=ls(all=T))
 
-setwd("C:/Users/Santiago/Documents/protestas2019")
-
 library(gdeltr2)
 library(dplyr)
 library(lubridate)
