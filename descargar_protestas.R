@@ -46,4 +46,8 @@ datos_mapa <- df %>%
 
 datos_mapa <- datos_mapa %>%
   arrange(dateFraction) %>%
-  filter(dateFraction > 2019)
+  filter(dateFraction > 2019) %>%
+  filter(idTypeLocationAction >= 3) %>%
+  filter(is.na(latitudeAction) == FALSE)
+  
+saveRDS(datos_mapa, file = "datos_mapa.RData")
