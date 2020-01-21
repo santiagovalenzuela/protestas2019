@@ -3,7 +3,6 @@ rm(list=ls(all=T))
 library(gdeltr2)
 library(dplyr)
 library(lubridate)
-library(haven)
 
 # D E S C A R G A 
 
@@ -26,10 +25,12 @@ descarga <- function(dias){
 
 #descarga(fechas)
 
+# L I M P I E Z A
+
 #Creamos una tibble vacía con los nombres de las columnas y los tipos de variables:
 df <- head(readRDS(file = filenames[1]), n = 0)
 
-# L I M P I E Z A
+#Unimos los archivos que descargamos
 for (archivo in filenames){
   x <-readRDS(file = archivo)
   x <-x %>% filter(idCAMEOEventRoot == 14) #Nos quedamos unicamente con las protestas
@@ -38,3 +39,11 @@ for (archivo in filenames){
 }
 
 save(df, file = "protestas2019.RData")
+
+datos_mapa <- df %>%
+  select(idGlobalEvent, dateEvent, dateFraction, idTypeLocationAction,
+         locationAction, idCountryAction, latitudeAction, longitudeAction)
+
+datos_mapa <- datos_mapa %>%
+  arrange(dateFraction) %>%
+  filter(dateFraction > 2019)
