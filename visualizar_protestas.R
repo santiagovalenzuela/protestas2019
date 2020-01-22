@@ -17,7 +17,6 @@ loadfonts(device = "win")
 datos <-readRDS(file = "datos_mapa.RData")
 
 data(wrld_simpl)
-#mundo <- spTransform(wrld_simpl, CRS=("+proj=moll +lon_0=0 +x_0=0 +y_0=0"))
 
 mundo <- ggplot(wrld_simpl,
             aes(x = long,
@@ -29,7 +28,7 @@ mundo <- ggplot(wrld_simpl,
 mapa <-mundo +
   geom_point(aes(x = longitudeAction, y = latitudeAction, group= dateEvent),
              color = "#D4EDF7",
-             alpha = 0.5,
+             alpha = 0.8,
              size = 1,
              data = datos) +
   
@@ -43,9 +42,9 @@ mapa <-mundo +
   theme_void() +
   theme(text = element_text(color= "#D4EDF7", family="Segoe UI"),
         plot.background = element_rect(fill = "#347B98"),
-        plot.title = element_text(hjust = 0, size = 16, face = "bold"),
-        plot.caption = element_text(hjust = 0))
+        plot.title = element_text(hjust = 0, size = 18, face = "bold"),
+        plot.subtitle = element_text(hjust = 0, size = 14),
+        plot.caption = element_text(hjust = 0, size = 12))
 
-animate(mapa, height = 600, width = 1200)
+animate(mapa, height = 600, width = 1000, nframes = 365)
 anim_save("protestas_2019.gif")
-
