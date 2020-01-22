@@ -34,7 +34,7 @@ mapa <-mundo +
   
   labs(title= " 2019: un año de protestas",
        subtitle = " Fecha: {frame_time}",
-       caption = " Fuente: Elaboración propia con datos de GDELT \n @santivalenz\n") +
+       caption = " Fuente: Elaboración propia con datos de GDELT \n @santivalenz // @masquedata") +
   
   transition_time(dateEvent) + 
   exit_fade()+
@@ -47,4 +47,4 @@ mapa <-mundo +
         plot.caption = element_text(hjust = 0, size = 12))
 
 animate(mapa, height = 600, width = 1000, nframes = 365)
-anim_save("protestas_2019.gif")
+anim_save("protestas_2019_s.gif")
