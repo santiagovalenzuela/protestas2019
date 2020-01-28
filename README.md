@@ -6,4 +6,8 @@ Como su nombre lo indica, el archivo **descargar_protestas** descarga los datos 
 
 ![Protestas en el mundo en el 2019](protestas_2019.gif)
 
+Las gráficas creadas por **analizar_protestas** son las siguientes:
 
+![ ](medios.jpeg)
+
+![ ](territorios.jpeg)
